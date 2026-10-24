@@ -97,6 +97,16 @@ COLORS.schemes = {
     tertiary: '#ebebeb'
   },
 
+  classic: {
+    name: 'Classic Saber',
+    off: '#111',
+    primary: '#e8283a',
+    primarybright: '#ff6b78',
+    secondary: '#2a7bff',
+    secondarybright: '#7fb2ff',
+    tertiary: '#f0f0f0'
+  },
+
   black: {
     name: 'Ash Nova',
     off: '#111',

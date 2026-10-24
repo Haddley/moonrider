@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "deploy": "npm run predeploy && ghpages git@github.com:supermedium/moonrider.git -p .ghpages && rm -rf .ghpages",
+    "deploy": "npm run predeploy && sh scripts/deploy.sh",
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
-    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor CNAME .ghpages",
+    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor .ghpages && rm -rf .ghpages/assets/raw && touch .ghpages/.nojekyll",
     "start": "webpack-dev-server --host 0.0.0.0 --https --progress --colors --hot-only --inline --port 3000"
   },
   "dependencies": {
