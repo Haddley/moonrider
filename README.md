@@ -79,3 +79,7 @@ npm run deploy
 ```
 
 The website will be available on `https://yourusername.github.io/moonrider/`.
+
+## Lyrics (local files only)
+
+The in-game lyrics feature displays timed lyrics from local `assets/lyrics/<beatsaver-id>.lrc` files. These files are gitignored and excluded from `npm run deploy`, so they stay on this machine. Do not commit, publish or redistribute lyrics for copyrighted songs.

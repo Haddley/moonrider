@@ -49,3 +49,7 @@ dump.rdb
 #Idea Project Files
 idea/
 .idea/
+
+# Copyrighted lyrics (private use only); keep the public-domain demo
+assets/lyrics/*.lrc
+!assets/lyrics/example.lrc

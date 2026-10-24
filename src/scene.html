@@ -9,6 +9,7 @@
   bind__beat-system="gameMode: gameMode; hasVR: hasVR; isLoading: isLoading; isPlaying: isPlaying"
   bind__gameover="isGameOver: isGameOver"
   bind__intro-song="isPlaying: menuActive && !menuSelectedChallenge.id; isSearching: isSearching"
+  bind__lyrics="challengeId: challenge.id; enabled: lyricsEnabled; isPlaying: isPlaying; colorSecondaryBright: colorSecondaryBright"
   bind__leaderboard="difficulty: menuSelectedChallenge.difficulty || challenge.difficulty; beatmapCharacteristic: menuSelectedChallenge.beatmapCharacteristic || challenge.beatmapCharacteristic; gameMode: gameMode; inVR: inVR; isVictory: isVictory; menuSelectedChallengeId: menuSelectedChallenge.id; challengeId: challenge.id"
   bind__search="difficultyFilter: difficultyFilter; genre: genre; playlist: playlist; query: search.query"
   bind__song="audio: challenge.audio; challengeId: challenge.id; isLoading: isLoading; isPlaying: isPlaying; isBeatsPreloaded: challenge.isBeatsPreloaded; isGameOver: isGameOver; isVictory: isVictory"

@@ -85,6 +85,8 @@ AFRAME.registerState({
     colorSecondary: COLORS.schemes[colorScheme].secondary,
     colorSecondaryBright: COLORS.schemes[colorScheme].secondarybright,
     colorTertiary: COLORS.schemes[colorScheme].tertiary,
+    lyricsLabel: '',
+    lyricsEnabled: localStorage.getItem('lyricsEnabled') !== 'false',
     controllerType: '',
     damage: 0,
     difficultyFilter: 'All',
@@ -229,6 +231,11 @@ AFRAME.registerState({
       state.colorSecondaryBright = COLORS.schemes[payload].secondarybright;
       state.colorTertiary = COLORS.schemes[payload].tertiary;
       localStorage.setItem('colorScheme', payload);
+    },
+
+    lyricstoggle: state => {
+      state.lyricsEnabled = !state.lyricsEnabled;
+      localStorage.setItem('lyricsEnabled', state.lyricsEnabled);
     },
 
     controllerconnected: (state, payload) => {
@@ -856,6 +863,8 @@ AFRAME.registerState({
       state.isGameOver || state.isLoading || state.introActive;
     state.leftRaycasterActive = anyMenuOpen && state.activeHand === 'left' && state.inVR;
     state.rightRaycasterActive = anyMenuOpen && state.activeHand === 'right' && state.inVR;
+
+    state.lyricsLabel = state.lyricsEnabled ? 'LYRICS: ON' : 'LYRICS: OFF';
 
     state.mainMenuActive =
       state.menuActive &&

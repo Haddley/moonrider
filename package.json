@@ -6,7 +6,7 @@
     "deploy": "npm run predeploy && sh scripts/deploy.sh",
     "lint": "semistandard -v | snazzy",
     "lint:fix": "semistandard --fix",
-    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor .ghpages && rm -rf .ghpages/assets/raw && touch .ghpages/.nojekyll",
+    "predeploy": "cross-env NODE_ENV=production npm run build && shx mkdir -p .ghpages && cp -r index.html assets build vendor .ghpages && rm -rf .ghpages/assets/raw .ghpages/assets/lyrics && touch .ghpages/.nojekyll",
     "start": "webpack-dev-server --host 0.0.0.0 --https --progress --colors --hot-only --inline --port 3000"
   },
   "dependencies": {
