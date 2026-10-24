@@ -19,6 +19,16 @@ The nvm default alias is `system`, so new shells start on Node 25.
 
 A fresh checkout has no `node_modules`, so run `nvm use 11 && npm install` once before `npm run start`/`npm run build` (otherwise the build fails with `cross-env: command not found`). The install prints many `npm WARN deprecated` messages — normal for this old dependency tree.
 
+**Alternative: modern Node (no Node 11/Rosetta needed).** On Apple Silicon without Rosetta, the build works on the system Node (v26) with:
+
+```
+export NODE_OPTIONS=--openssl-legacy-provider   # webpack 4 needs this on Node 17+; also needed for `npm run start`
+npm install --ignore-scripts --legacy-peer-deps # a git dependency's postinstall downloads Electron 1.7.11, which has no arm64 build
+npm run build
+```
+
+Verified for `npm run build` only; the dev server and runtime were not tested this way. `git-lfs` is not installed, so some git operations may print `git-lfs: command not found`.
+
 `npm install` under npm 6 can silently skip `ansi-html-community` (a declared dependency of `webpack-dev-server@3.11.3`). If `npm run start` fails to compile with `Module not found: Can't resolve 'ansi-html-community'`, run `npm install --save-dev ansi-html-community@0.0.8` to fix it (already pinned in `devDependencies`).
 
 - `npm run start` — webpack-dev-server (HTTPS) with hot module replacement at `https://localhost:3000`. Serves over HTTPS with a self-signed cert (via `--https`), which WebXR requires for a secure context — the browser shows a cert warning you must accept ("Advanced → Proceed"). For headset/other-device testing use `https://<your-LAN-IP>:3000`. `localhost` over plain HTTP is also a secure context, but the `--https` flag makes the LAN URL work too.
